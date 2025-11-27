@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background layers */
+    --background: 222 47% 11%; /* Deep purple-black #1a0f1f */
+    --surface: 222 47% 15%; /* Slightly lighter #251628 */
+    --surface-elevated: 222 47% 19%; /* Cards and modals #2f1d32 */
+
+    /* Text */
+    --text-primary: 280 10% 95%; /* Off-white #f5f3f7 */
+    --text-secondary: 280 10% 70%; /* Muted text #b8b0bd */
+    --text-tertiary: 280 10% 50%; /* Disabled text #8a7f91 */
+
+    /* Accent colors (Halloween themed) */
+    --accent-purple: 270 70% 60%; /* Primary actions #9d5bd2 */
+    --accent-orange: 25 95% 53%; /* Warnings, highlights #f97316 */
+    --accent-green: 142 76% 36%; /* Success states #16a34a */
+    --accent-red: 0 84% 60%; /* Errors, danger #ef4444 */
+
+    /* Borders and dividers */
+    --border: 280 20% 25%; /* Subtle borders #3d3142 */
+    --border-hover: 280 30% 35%; /* Interactive borders #5a4a5f */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-text-primary antialiased;
+  }
+}
+
+@layer utilities {
+  /* Spooky glow effects */
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(157, 91, 210, 0.4);
+  }
+
+  .glow-purple-sm {
+    box-shadow: 0 0 10px rgba(157, 91, 210, 0.3);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px rgba(22, 163, 74, 0.4);
+  }
+
+  /* Smooth animations */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-ghost-float {
+    animation: ghostFloat 3s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ghostFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

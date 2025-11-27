@@ -1,0 +1,66 @@
+// Haunted Tasks - Database Schema
+// Extends skeleton-core with task-specific models
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Import core models (User, Organization, Membership, Activity)
+// In practice, you'd reference the core schema or duplicate base models
+
+model Task {
+  id             String    @id @default(cuid())
+  title          String
+  description    String?
+  status         TaskStatus @default(SUMMONED)
+  priority       Priority   @default(MEDIUM)
+  assigneeId     String?
+  organizationId String
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  completedAt    DateTime?
+
+  tags TaskTag[]
+
+  @@index([organizationId, status])
+  @@index([assigneeId])
+}
+
+model Tag {
+  id             String   @id @default(cuid())
+  name           String
+  color          String?
+  organizationId String
+  createdAt      DateTime @default(now())
+
+  tasks TaskTag[]
+
+  @@unique([organizationId, name])
+}
+
+model TaskTag {
+  taskId String
+  tagId  String
+  task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([taskId, tagId])
+}
+
+enum TaskStatus {
+  SUMMONED
+  IN_RITUAL
+  BANISHED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}

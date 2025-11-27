@@ -1,0 +1,76 @@
+// Coven CRM - Database Schema
+// Extends skeleton-core with CRM-specific models
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Import core models (User, Organization, Membership, Activity)
+// In practice, you'd reference the core schema or duplicate base models
+
+model Contact {
+  id             String    @id @default(cuid())
+  name           String
+  email          String
+  phone          String?
+  stage          Stage      @default(FAMILIAR)
+  notes          String?
+  companyId      String?
+  organizationId String
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  convertedAt    DateTime?
+
+  company      Company?      @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  interactions Interaction[]
+
+  @@index([organizationId, stage])
+  @@index([companyId])
+}
+
+model Company {
+  id             String   @id @default(cuid())
+  name           String
+  website        String?
+  industry       String?
+  notes          String?
+  organizationId String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  contacts Contact[]
+
+  @@index([organizationId])
+}
+
+model Interaction {
+  id          String          @id @default(cuid())
+  type        InteractionType
+  description String
+  contactId   String
+  userId      String
+  createdAt   DateTime        @default(now())
+
+  contact Contact @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  @@index([contactId, createdAt])
+}
+
+enum Stage {
+  FAMILIAR
+  ENCHANTING
+  BEWITCHED
+  VANISHED
+}
+
+enum InteractionType {
+  EMAIL
+  CALL
+  MEETING
+  NOTE
+}
