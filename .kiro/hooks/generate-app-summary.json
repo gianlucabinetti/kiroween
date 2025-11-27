@@ -1,0 +1,18 @@
+{
+  "name": "Generate App Summary",
+  "description": "Updates app summaries when app files change",
+  "enabled": true,
+  "trigger": {
+    "type": "onSave",
+    "filePattern": "apps/{haunted-tasks,coven-crm}/**/*.{ts,tsx}"
+  },
+  "action": {
+    "type": "sendMessage",
+    "message": "An app file was modified. Please update the app summary:\n\n1. Identify which app was changed (Haunted Tasks or Coven CRM)\n2. Update or create APP_SUMMARY.md in that app's directory with:\n   - Brief description (2-3 sentences)\n   - Main features list\n   - Key pages/routes\n   - Commands to run (dev, build, seed)\n   - Tech stack used\n\nKeep it concise and useful for developers."
+  },
+  "metadata": {
+    "category": "documentation",
+    "priority": "low",
+    "createdFor": "kiroween-hackathon"
+  }
+}

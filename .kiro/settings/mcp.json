@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "grimoire-blueprints": {
+      "command": "python",
+      "args": ["mcp/grimoire-blueprints/server.py"],
+      "env": {
+        "PYTHONPATH": "."
+      },
+      "disabled": false,
+      "autoApprove": ["get_theme_tokens", "get_app_blueprint"]
+    }
+  }
+}

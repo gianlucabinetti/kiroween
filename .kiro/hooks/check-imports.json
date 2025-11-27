@@ -1,0 +1,18 @@
+{
+  "name": "Check Skeleton Core Imports",
+  "description": "Verifies that apps are importing from skeleton-core correctly",
+  "enabled": true,
+  "trigger": {
+    "type": "onSave",
+    "filePattern": "apps/**/*.{ts,tsx}"
+  },
+  "action": {
+    "type": "sendMessage",
+    "message": "Check if this file imports from skeleton-core correctly:\n\n1. Look for imports from '@grimoire/skeleton-core'\n2. Verify they match the exports in skeleton-core/components/index.ts, skeleton-core/hooks/index.ts, and skeleton-core/lib/index.ts\n3. If there are any incorrect imports (e.g., importing from relative paths instead of the package), suggest fixes\n4. If everything looks good, just respond with '✅ Imports look good!'\n\nBe brief and actionable."
+  },
+  "metadata": {
+    "category": "quality",
+    "priority": "medium",
+    "createdFor": "kiroween-hackathon"
+  }
+}

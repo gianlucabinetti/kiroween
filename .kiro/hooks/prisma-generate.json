@@ -1,0 +1,19 @@
+{
+  "name": "Prisma Generate on Schema Change",
+  "description": "Automatically regenerates Prisma client when schema changes",
+  "enabled": true,
+  "trigger": {
+    "type": "onSave",
+    "filePattern": "**/prisma/schema.prisma"
+  },
+  "action": {
+    "type": "command",
+    "command": "npx prisma generate",
+    "workingDirectory": "${fileDir}/.."
+  },
+  "metadata": {
+    "category": "database",
+    "priority": "high",
+    "createdFor": "kiroween-hackathon"
+  }
+}

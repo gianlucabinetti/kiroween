@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@grimoire/skeleton-core/*": ["./skeleton-core/*"]
+    }
+  },
+  "include": [],
+  "exclude": ["node_modules"],
+  "references": [
+    { "path": "./skeleton-core" },
+    { "path": "./apps/haunted-tasks" },
+    { "path": "./apps/coven-crm" }
+  ]
+}

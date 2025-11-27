@@ -1,0 +1,20 @@
+{
+  "name": "Lint and Format Check",
+  "description": "Runs linting and formatting checks on TypeScript files",
+  "enabled": true,
+  "trigger": {
+    "type": "onSave",
+    "filePattern": "**/*.{ts,tsx}",
+    "excludePattern": "node_modules/**"
+  },
+  "action": {
+    "type": "command",
+    "command": "npm run lint",
+    "workingDirectory": "."
+  },
+  "metadata": {
+    "category": "quality",
+    "priority": "medium",
+    "createdFor": "kiroween-hackathon"
+  }
+}
