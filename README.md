@@ -4,6 +4,34 @@
 
 **Kiroween Hackathon 2025 - Skeleton Crew Category**
 
+---
+
+## 🧙 Kiroween Submission Notes
+
+This repository is a **monorepo** that contains the **two separate applications** required for the Skeleton Crew category:
+
+- **`apps/haunted-tasks`** – _Haunted Tasks_ application  
+  - A spooky team task management dashboard (3-stage workflow: **Summoned → In Ritual → Banished**)
+
+- **`apps/coven-crm`** – _Coven CRM_ application  
+  - A mystical CRM for tracking contacts and interactions (4-stage pipeline: **Familiar → Enchanting → Bewitched → Vanished**)
+
+Each app has:
+
+- Its own folder under `apps/`
+- Its own `package.json`, Next.js app, Prisma schema, and implementation docs:
+  - `apps/haunted-tasks/IMPLEMENTATION.md`
+  - `apps/coven-crm/IMPLEMENTATION.md`
+
+### License
+
+This project is **open source** under the **MIT License**.  
+The license file is at the repo root: [`LICENSE`](./LICENSE), and is visible in the GitHub “About” section.
+
+---
+
+**Kiroween Hackathon 2025 - Skeleton Crew Category**
+
 Grimoire Stack demonstrates the power of the **skeleton pattern**: write shared infrastructure once, build multiple apps quickly. It's a reusable foundation for rapidly building modern web applications with authentication, database integration, UI components, and layout structures—all with a tasteful Halloween aesthetic.
 
 ## 🏆 The Skeleton Crew Concept
