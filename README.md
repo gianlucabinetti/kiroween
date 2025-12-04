@@ -110,18 +110,21 @@ See [SETUP.md](./SETUP.md) for detailed step-by-step instructions.
 ## 📁 Project Structure
 
 ```
-grimoire-stack/
-├── .kiro/              # Kiro specs, steering docs, and hooks
-├── skeleton-core/      # Shared reusable code
-│   ├── components/     # UI components (Button, Card, Modal, etc.)
-│   ├── hooks/          # React hooks (useLocalStorage, useDebounce, etc.)
-│   ├── lib/            # Utilities and helpers
-│   ├── types/          # Shared TypeScript types
-│   └── prisma/         # Core database schema
-├── apps/
-│   ├── haunted-tasks/  # Task management app
-│   └── coven-crm/      # CRM app
-└── package.json        # Root dependencies
+kiroween/                 # Root repo (Grimoire Stack monorepo)
+├── .kiro/                # Kiro specs, steering docs, and hooks
+├── apps/                 # 🔥 Kiroween requires 2 separate apps – they live here
+│   ├── haunted-tasks/    # App 1: Haunted Tasks
+│   └── coven-crm/        # App 2: Coven CRM
+├── skeleton-core/        # Shared reusable code (“skeleton core”)
+│   ├── components/       # UI components (Button, Card, Modal, etc.)
+│   ├── hooks/            # React hooks (useLocalStorage, useDebounce, etc.)
+│   ├── lib/              # Utilities and helpers
+│   ├── types/            # Shared TypeScript types
+│   └── prisma/           # Core database schema
+├── markdowns/            # Supporting and generated docs
+├── mcp/                  # MCP server for blueprints
+└── package.json          # Root dependencies
+
 ```
 
 ## 🎯 How to Use Skeleton Core
